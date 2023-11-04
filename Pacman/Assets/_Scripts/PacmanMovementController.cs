@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class PacmanMovementController : MonoBehaviour
 {
+    [Header("Lerp Movement Variables")]
     private Vector2 endPosition = new Vector2(-7,0);
     private Vector2 startPosition;
-    private float desiredDuration = .5f;
     private float elapsedTime;
-    private bool move = true;
     private float percentageComplete;
-    public Vector2 targetDirection = Vector2.right;
-    public Vector2 currentDirection;
-    private int timeflow = 1;
+    private float desiredDuration = .5f;
+    private Vector2 targetDirection = Vector2.right;
+    private Vector2 currentDirection;
 
     private void Start()
     {
@@ -23,13 +22,10 @@ public class PacmanMovementController : MonoBehaviour
     {
         InputHandler();
         
-        if (timeflow == 1)
-        {
-            elapsedTime += Time.deltaTime * timeflow;
-            percentageComplete = elapsedTime / desiredDuration;
+        elapsedTime += Time.deltaTime;
+        percentageComplete = elapsedTime / desiredDuration;
 
-            transform.position = Vector2.Lerp(startPosition, endPosition, percentageComplete);
-        }
+        transform.position = Vector2.Lerp(startPosition, endPosition, percentageComplete);
 
         if (percentageComplete >= 1)
         {
