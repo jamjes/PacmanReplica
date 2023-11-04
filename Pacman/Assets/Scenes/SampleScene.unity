@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 1561891967}
   - component: {fileID: 1561891968}
   - component: {fileID: 1561891966}
+  - component: {fileID: 1561891969}
   m_Layer: 0
   m_Name: Pacman
   m_TagString: Player
@@ -391,6 +392,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 252e3a79def3dd44c8cd033f3861ea31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1561891969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561891964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb79e5f22df59544a939d4a86fa8bd30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
