@@ -5,17 +5,21 @@ using UnityEngine;
 public class PacmanMovementController : MonoBehaviour
 {
     [Header("Lerp Movement Variables")]
-    private Vector2 endPosition = new Vector2(-7,0);
-    private Vector2 startPosition;
+    public Vector2 endPosition;
+    public Vector2 startPosition;
     private float elapsedTime;
     private float percentageComplete;
     private float desiredDuration = .5f;
     private Vector2 targetDirection = Vector2.right;
     private Vector2 currentDirection;
 
+    [Header("Components")]
+    public PacmanCollisionController colEvents;
+
     private void Start()
     {
         startPosition = transform.position;
+        endPosition = transform.position + Vector3.right;
     }
 
     private void Update()
@@ -30,7 +34,16 @@ public class PacmanMovementController : MonoBehaviour
         if (percentageComplete >= 1)
         {
             startPosition = transform.position;
-            currentDirection = targetDirection;
+
+            if ((targetDirection == Vector2.right && colEvents.rightCol) || (targetDirection == Vector2.down && colEvents.downCol))
+            {
+                currentDirection = Vector2.zero;
+            }
+            else
+            {
+                currentDirection = targetDirection;
+            }
+
             endPosition = transform.position + new Vector3(currentDirection.x, currentDirection.y, 0);
             elapsedTime = 0;
         }
