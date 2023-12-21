@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd8e9224e560124da7077c635017deb, type: 3}
+  m_Name: GhostSpritesheet
+  m_EditorClassIdentifier: 
+  EYES_STANDARD_UP: {fileID: 152378429, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  EYES_STANDARD_LEFT: {fileID: -75320565, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  EYES_STANDARD_DOWN: {fileID: -1466368082, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  EYES_STANDARD_RIGHT: {fileID: 604429101, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  EYES_ANGRY_UP: {fileID: -1886645293, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  EYES_ANGRY_LEFT: {fileID: 1602053076, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  EYES_ANGRY_DOWN: {fileID: 1677332540, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  EYES_ANGRY_RIGHT: {fileID: 1849508126, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  MOUTH_ANGRY: {fileID: 1446422749, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  EYES_SCARED_UP: {fileID: -1380402341, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  EYES_SCARED_LEFT: {fileID: 806609232, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  EYES_SCARED_DOWN: {fileID: -543415332, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  EYES_SCARED_RIGHT: {fileID: -326729815, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  MOUTH_SCARED: {fileID: -564877187, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  EYES_BORED_UP: {fileID: 2006954152, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  EYES_BORED_LEFT: {fileID: -1193781342, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  EYES_BORED_DOWN: {fileID: 1745003235, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  EYES_BORED_RIGHT: {fileID: 1477005351, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  MOUTH_BORED: {fileID: 939996253, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  EYES_STUNNED: {fileID: 1132705815, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
+  MOUTH_STUNNED: {fileID: 811425620, guid: 35db1d26bae4fd0458825912387c7884, type: 3}
