@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7814ddf4f51d0e24090c76fb4dde44c6
+guid: 0baaf5cdb79774c439efbfa13e8bf8d9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,11 +100,23 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pac-Man-Sprites_0
+      name: Pac-Man-Sprites-Left_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5571ef96bd39bf84fbaf68a6bf1f7140
-      internalID: -280102558
+      spriteID: d0240c130384c1949b3f1b984a4a110f
+      internalID: 1749245928
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pac-Man-Sprites_1
+      name: Pac-Man-Sprites-Left_1
       rect:
         serializedVersion: 2
         x: 0
@@ -139,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0577f0f82e8e74442b990f9d2b23747f
-      internalID: 213161258
+      spriteID: a09d3094a1c61f94793030b34df318b7
+      internalID: -1264322761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pac-Man-Sprites_2
+      name: Pac-Man-Sprites-Left_2
       rect:
         serializedVersion: 2
         x: 0
@@ -160,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b88333a16536eb4e8950e5fe8ce0a2b
-      internalID: -124929016
+      spriteID: 61326cf00a24a5340a42ae219fe88abc
+      internalID: 1796491447
       vertices: []
       indices: 
       edges: []
@@ -177,9 +189,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Pac-Man-Sprites_2: -124929016
-      Pac-Man-Sprites_1: 213161258
-      Pac-Man-Sprites_0: -280102558
+      Pac-Man-Sprites-Left_0: 1749245928
+      Pac-Man-Sprites-Left_1: -1264322761
+      Pac-Man-Sprites-Left_2: 1796491447
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

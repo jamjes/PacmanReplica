@@ -88,7 +88,7 @@ public class Pacman : MonoBehaviour
                 _targetPosition = null;
                 _isMoving = false;
                 
-                foreach(Pellet pellet in _gridRef.PelletPositions)
+                /*foreach(Pellet pellet in _gridRef.PelletPositions)
                 {
                     if ((Vector2)pellet.transform.position == Coordinates)
                     {
@@ -106,7 +106,7 @@ public class Pacman : MonoBehaviour
                         break;
                     }
                     
-                }
+                }*/
             }
         }
         else
@@ -207,10 +207,10 @@ public class Pacman : MonoBehaviour
 
     public void CheckGameEnd()
     {
-        if (pelletCount == _gridRef.PelletPositions.Length)
-        {
-            if (win != true) win = true;
-        }
+        //if (pelletCount == _gridRef.PelletPositions.Length)
+        //{
+            //if (win != true) win = true;
+        //}
     }
 
 

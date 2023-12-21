@@ -1,42 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PathGrid : MonoBehaviour
 {
     [SerializeField] private int _width, _height;
     [SerializeField] private PathNode _nodePrefab;
-    [SerializeField] private Pellet _pelletPrefab;
+    //[SerializeField] private Pellet _pelletPrefab;
     [SerializeField] private Transform _camera;
-    public Pellet[] PelletPositions;
+    //public Pellet[] PelletPositions;
     private Dictionary<Vector2, PathNode> _nodes;
     private LayerMask _wallLayer;
-    private Vector2[] wallPositions = 
-    {
-        new Vector2(5,1), new Vector2(14,1),
-        new Vector2(2,2), new Vector2(3,2), new Vector2(5,2), new Vector2(7,2), new Vector2(8,2), new Vector2(9,2), new Vector2(10,2), new Vector2(11,2), new Vector2(12,2), new Vector2(14,2), new Vector2(16,2), new Vector2(17,2), 
-        new Vector2(2,3), new Vector2(17,3),
-        new Vector2(2,4), new Vector2(4,4), new Vector2(5,4), new Vector2(7,4), new Vector2(8,4), new Vector2(9,4), new Vector2(10,4), new Vector2(11,4), new Vector2(12,4), new Vector2(14,4), new Vector2(15,4), new Vector2(17,4), 
-        new Vector2(7,5), new Vector2(12,5), 
-        new Vector2(2,6), new Vector2(4,6), new Vector2(5,6), new Vector2(7,6), new Vector2(8,6), new Vector2(9,6), new Vector2(10,6), new Vector2(11,6), new Vector2(12,6), new Vector2(14,6), new Vector2(15,6), new Vector2(17,6), 
-        new Vector2(2,7), new Vector2(17,7), 
-        new Vector2(2,8), new Vector2(3,8), new Vector2(5,8), new Vector2(7,8), new Vector2(8,8), new Vector2(9,8), new Vector2(10,8), new Vector2(11,8), new Vector2(12,8), new Vector2(14,8), new Vector2(16,8), new Vector2(17,8), 
-        new Vector2(5,9), new Vector2(14,9)
-        
-    };
+    public Vector2[] wallPositions = 
+    { };
 
     private void Start()
     {
         _wallLayer = LayerMask.NameToLayer("Wall");
         GenerateGrid();
-        PelletPositions = new Pellet[94];
+        //PelletPositions = new Pellet[94];
         
-        var allPellets = FindObjectsOfType<Pellet>();
+        //var allPellets = FindObjectsOfType<Pellet>();
         
-        for(int count = 0; count < allPellets.Length; count++)
-        {
-            PelletPositions[count] = allPellets[count];
-        }
+        //for(int count = 0; count < allPellets.Length; count++)
+        //{
+            //PelletPositions[count] = allPellets[count];
+        //}
     }
     
     public PathNode GetNodeAtPosition(Vector2 position)
@@ -55,13 +45,15 @@ public class PathGrid : MonoBehaviour
         {
             if ((node.GetCoordinates().x == 0 || node.GetCoordinates().x == _width - 1) || ((node.GetCoordinates().y == 0 || node.GetCoordinates().y == _height - 1)))
             {
-                GetNodeAtPosition(node.GetCoordinates()).gameObject.layer = _wallLayer.value;
+                //GetNodeAtPosition(node.GetCoordinates()).gameObject.layer = _wallLayer.value;
+                GetNodeAtPosition(node.GetCoordinates()).SetType(PathNode.Type.WALL);
             }
         }
 
         foreach(Vector2 wall in wallPositions)
         {
-            GetNodeAtPosition(wall).gameObject.layer = _wallLayer.value;
+            //GetNodeAtPosition(wall).gameObject.layer = _wallLayer.value;
+            GetNodeAtPosition(wall).SetType(PathNode.Type.WALL);
         }
     }
     
