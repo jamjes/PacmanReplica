@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerAnimationController : MonoBehaviour
 {
-    [SerializeField] private PlayerMovementController m_Controller;
-    [SerializeField] private SpriteRenderer s_Renderer;
+    [SerializeField] private PlayerController PlayerController;
+    [SerializeField] private PlayerMovementController MovementController;
+    [SerializeField] private SpriteRenderer SprRenderer;
     [SerializeField] private Animator c_Animator;
     [SerializeField] private Sprite p_Up, p_Left, p_Down, p_Right;
 
@@ -23,7 +24,7 @@ public class PlayerAnimationController : MonoBehaviour
 
     private void UpdateAnim()
     {
-        switch (m_Controller.CurrentDirection)
+        switch (MovementController.CurrentDirection)
         {
             case Vector2 d when d == Vector2.up:
                 c_Animator.CrossFade(Up, 0, 0);
@@ -44,23 +45,23 @@ public class PlayerAnimationController : MonoBehaviour
     }
     private void UpdatePointer()
     {
-        switch (m_Controller.TargetDirection)
+        switch (PlayerController.TargetDirection)
         {
             case Vector2 d when d == Vector2.up:
-                s_Renderer.sprite = p_Up;
-                s_Renderer.gameObject.transform.localPosition = new Vector2(0, 1.125f);
+                SprRenderer.sprite = p_Up;
+                SprRenderer.gameObject.transform.localPosition = new Vector2(0, 1.125f);
                 break;
             case Vector2 d when d == Vector2.left:
-                s_Renderer.sprite = p_Left;
-                s_Renderer.gameObject.transform.localPosition = new Vector2(-1.125f, 0);
+                SprRenderer.sprite = p_Left;
+                SprRenderer.gameObject.transform.localPosition = new Vector2(-1.125f, 0);
                 break;
             case Vector2 d when d == Vector2.down:
-                s_Renderer.sprite = p_Down;
-                s_Renderer.gameObject.transform.localPosition = new Vector2(0, -1.125f);
+                SprRenderer.sprite = p_Down;
+                SprRenderer.gameObject.transform.localPosition = new Vector2(0, -1.125f);
                 break;
             case Vector2 d when d == Vector2.right:
-                s_Renderer.sprite = p_Right;
-                s_Renderer.gameObject.transform.localPosition = new Vector2(1.125f, 0);
+                SprRenderer.sprite = p_Right;
+                SprRenderer.gameObject.transform.localPosition = new Vector2(1.125f, 0);
                 break;
         }
     }

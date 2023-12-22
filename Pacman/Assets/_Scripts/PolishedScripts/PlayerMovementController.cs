@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
 {
-    private Vector2 currentPosition, targetPosition;
-    public Vector2 TargetDirection { get; private set; }
+    private Vector2 currentPosition;
+    private Vector2 targetPosition;
     public Vector2 CurrentDirection { get; private set; }
-    private float elapsedTime, desiredDuration = .3f;
+
+    private float elapsedTime;
+    private float desiredDuration = .3f;
+    
     private bool isMoving;
-    [SerializeField] private PathGrid grid;
+    
+    [SerializeField] private PathGrid pathGrid;
+    [SerializeField] private PlayerController playerController;
 
     private void Start()
     {
@@ -19,32 +23,14 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            TargetDirection = Vector2.up;
-        }
-        else if (Input.GetKeyDown(KeyCode.A))
-        {
-            TargetDirection = Vector2.left;
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            TargetDirection = Vector2.down;
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            TargetDirection = Vector2.right;
-        }
-
-
         if (!isMoving)
         {
-            targetPosition = currentPosition + TargetDirection;
+            targetPosition = currentPosition + playerController.TargetDirection;
 
             if (isValidPosition(targetPosition))
             {
                 isMoving = true;
-                CurrentDirection = TargetDirection;
+                CurrentDirection = playerController.TargetDirection;
             }
             else if (!isValidPosition(targetPosition))
             {
@@ -55,30 +41,52 @@ public class PlayerMovementController : MonoBehaviour
                 }
                 else
                 {
-                    CurrentDirection = Vector2.zero;
+                    if (playerController.CurrentState != PlayerController.PlayerState.Idle)
+                    {
+                        playerController.SetState(PlayerController.PlayerState.Idle);
+                        CurrentDirection = Vector2.zero;
+                    }
+                        
                 }
             }
         }
         else
         {
-            elapsedTime += Time.deltaTime;
-            float percentageComplete = elapsedTime / desiredDuration;
-
-            transform.position = Vector3.Lerp(currentPosition, targetPosition, percentageComplete);
-
-            if (percentageComplete >= 1)
+            if (playerController.CurrentState != PlayerController.PlayerState.Eat)
             {
-                elapsedTime = 0;
-                isMoving = false;
-                currentPosition = targetPosition;
+                playerController.SetState(PlayerController.PlayerState.Eat);
             }
+
+            MovePlayer();
         }
     }
 
     private bool isValidPosition(Vector2 pos)
     {
-        PathNode node = grid.GetNodeAtPosition(pos);
-        bool result = (node.NodeType == PathNode.Type.PATH) ? true : false;
-        return result;
+        if (currentPosition == pos)
+        {
+            return false;
+        }
+        else
+        {
+            PathNode node = pathGrid.GetNodeAtPosition(pos);
+            bool result = (node.NodeType == PathNode.Type.PATH) ? true : false;
+            return result;
+        }
+    }
+
+    private void MovePlayer()
+    {
+        elapsedTime += Time.deltaTime;
+        float percentageComplete = elapsedTime / desiredDuration;
+
+        transform.position = Vector3.Lerp(currentPosition, targetPosition, percentageComplete);
+
+        if (percentageComplete >= 1)
+        {
+            elapsedTime = 0;
+            isMoving = false;
+            currentPosition = targetPosition;
+        }
     }
 }

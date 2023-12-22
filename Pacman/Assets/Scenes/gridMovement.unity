@@ -474,12 +474,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9297dbfe5ac39604192de78b6db5076b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Controller: {fileID: 1767406950}
+  PlayerController: {fileID: 1767406951}
+  MovementController: {fileID: 1767406950}
+  SprRenderer: {fileID: 684610214}
+  c_Animator: {fileID: 1464787776}
   p_Up: {fileID: 465923742, guid: ee60b14cf1473544bb7dd6912ce78ad9, type: 3}
   p_Left: {fileID: 1708885589, guid: ee60b14cf1473544bb7dd6912ce78ad9, type: 3}
   p_Down: {fileID: -1366228805, guid: ee60b14cf1473544bb7dd6912ce78ad9, type: 3}
   p_Right: {fileID: -1970206037, guid: ee60b14cf1473544bb7dd6912ce78ad9, type: 3}
-  s_Renderer: {fileID: 684610214}
 --- !u!95 &1464787776
 Animator:
   serializedVersion: 4
@@ -555,6 +557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1767406949}
   - component: {fileID: 1767406950}
+  - component: {fileID: 1767406951}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -591,7 +594,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a308d32fa3aff4caaedcce3f7a59f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid: {fileID: 511513965}
+  pathGrid: {fileID: 511513965}
+  playerController: {fileID: 1767406951}
+--- !u!114 &1767406951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767406947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f8e63b6cec9c694c93f9d9b18bad894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetDirection: {x: 0, y: 0}
+  CurrentState: 0
 --- !u!1 &1941017655
 GameObject:
   m_ObjectHideFlags: 0
